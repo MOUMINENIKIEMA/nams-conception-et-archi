@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NAMS Conception et Architecture</title>
+<style>
+*{box-sizing:border-box}body{margin:0;font-family:Arial,sans-serif;background:#f7f5f0;color:#202020}
+header{background:#171717;color:#fff;padding:22px 18px;position:sticky;top:0}
+.logo{font-size:22px;font-weight:800}.tag{color:#d7a62a;font-size:13px;margin-top:5px}
+nav{margin-top:15px;display:flex;gap:8px;flex-wrap:wrap}nav a{color:#fff;text-decoration:none;padding:9px 12px;border:1px solid #555;border-radius:8px;font-size:13px}
+.hero{padding:55px 20px;background:linear-gradient(135deg,#242424,#111);color:#fff}
+.hero h1{font-size:39px;line-height:1.05;margin:0 0 14px}.hero p{font-size:17px;line-height:1.6;color:#ddd}
+.btn{display:inline-block;background:#d7a62a;color:#111;text-decoration:none;font-weight:700;padding:13px 18px;border-radius:8px;margin-top:8px}
+section{padding:35px 18px;max-width:1050px;margin:auto}h2{font-size:27px;margin-top:0}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}.card{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 15px #00000012}.icon{font-size:30px}.card h3{margin:10px 0 8px}.card p{line-height:1.5;color:#555}
+form{background:#fff;padding:20px;border-radius:12px;box-shadow:0 3px 15px #00000012}input,textarea,select{width:100%;padding:13px;margin:7px 0 13px;border:1px solid #ccc;border-radius:8px;font-size:15px}textarea{min-height:120px}
+footer{background:#171717;color:#fff;text-align:center;padding:28px 18px}footer span{color:#d7a62a}
+</style>
+</head>
+<body>
+<header>
+<div class="logo">NAMS CONCEPTION ET ARCHITECTURE</div>
+<div class="tag">L’excellence sur le chantier</div>
+<nav>
+<a href="#services">Services</a><a href="#realisations">Réalisations</a><a href="#devis">Demander un devis</a><a href="#contact">Contact</a>
+</nav>
+</header>
+
+<section class="hero">
+<h1>Concevons votre projet. Construisons votre avenir.</h1>
+<p>Plans architecturaux, conception technique, construction et finition. NAMS vous accompagne de l’idée jusqu’à la réalisation.</p>
+<a class="btn" href="#devis">Demander un devis</a>
+</section>
+
+<section id="services">
+<h2>Nos services</h2>
+<div class="grid">
+<div class="card"><div class="icon">📐</div><h3>Conception</h3><p>Plans architecturaux, études, métrés et préparation technique de votre projet.</p></div>
+<div class="card"><div class="icon">🧱</div><h3>Construction</h3><p>Accompagnement et réalisation des travaux de gros œuvre et des différents corps d’état.</p></div>
+<div class="card"><div class="icon">🎨</div><h3>Finition</h3><p>Travaux de finition et suivi pour obtenir un résultat propre et durable.</p></div>
+<div class="card"><div class="icon">👷</div><h3>Suivi technique</h3><p>Contrôle de l’exécution et accompagnement du client sur le chantier.</p></div>
+</div>
+</section>
+
+<section id="realisations">
+<h2>Nos réalisations</h2>
+<div class="grid">
+<div class="card"><h3>Plans de maisons</h3><p>Présentation de projets et plans conçus par NAMS.</p></div>
+<div class="card"><h3>Chantiers</h3><p>Suivi des différentes étapes de construction.</p></div>
+<div class="card"><h3>Projets sur mesure</h3><p>Des solutions adaptées au terrain, au budget et aux besoins du client.</p></div>
+</div>
+</section>
+
+<section id="devis">
+<h2>Demander un devis</h2>
+<form onsubmit="sendWhatsApp();return false">
+<label>Nom complet</label><input id="nom" required>
+<label>Téléphone</label><input id="tel" required>
+<label>Type de projet</label>
+<select id="projet"><option>Conception de plan</option><option>Construction</option><option>Finition</option><option>Suivi technique</option></select>
+<label>Décrivez votre projet</label><textarea id="message" required></textarea>
+<button class="btn" type="submit">Envoyer sur WhatsApp</button>
+</form>
+</section>
+
+<section id="contact">
+<h2>Contact</h2>
+<div class="card"><p><strong>NAMS CONCEPTION ET ARCHITECTURE</strong></p><p>📍 Ouagadougou, Burkina Faso</p><p>📞 Téléphone : à renseigner</p><p>💬 WhatsApp : à renseigner</p></div>
+</section>
+
+<footer><strong>NAMS CONCEPTION ET ARCHITECTURE</strong><br><span>L’excellence sur le chantier</span></footer>
+
+<script>
+function sendWhatsApp(){
+  const nom=document.getElementById('nom').value, tel=document.getElementById('tel').value;
+  const projet=document.getElementById('projet').value, msg=document.getElementById('message').value;
+  const texte=`Bonjour NAMS CONCEPTION ET ARCHITECTURE.%0A%0ANom: ${encodeURIComponent(nom)}%0ATéléphone: ${encodeURIComponent(tel)}%0AProjet: ${encodeURIComponent(projet)}%0ADétails: ${encodeURIComponent(msg)}`;
+  window.open('https://wa.me/?text='+texte,'_blank');
+}
+</script>
+</body>
+</html>
